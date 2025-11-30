@@ -67,7 +67,7 @@ export default async ({ req, res, log, error }) => {
     if (WEBHOOK_SECRET) {
       const signature = req.headers['x-nrfcloud-signature'] || req.headers['authorization'];
       if (!verifySignature(signature, WEBHOOK_SECRET)) {
-        error(`Invalid webhook signature: ${signature}, ${WEBHOOK_SECRET}`);
+        error('Invalid webhook signature');
         return res.json({ success: false, error: 'Invalid signature' }, 401);
       }
     }
