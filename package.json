@@ -1,0 +1,24 @@
+{
+  "name": "nrfcloud-appwrite-webhook",
+  "version": "1.0.0",
+  "description": "Appwrite Function to receive nRF Cloud Message Routing Service webhooks",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "node-appwrite": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "appwrite",
+    "nrfcloud",
+    "iot",
+    "webhook",
+    "nordic-semiconductor"
+  ],
+  "license": "MIT"
+}
