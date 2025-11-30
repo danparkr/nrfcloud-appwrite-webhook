@@ -63,14 +63,14 @@ export default async ({ req, res, log, error }) => {
 
     log(`Received webhook payload: ${JSON.stringify(payload).substring(0, 500)}...`);
 
-    // Optional: Verify webhook signature
-    if (WEBHOOK_SECRET) {
-      const signature = req.headers['x-nrfcloud-signature'] || req.headers['authorization'];
-      if (!verifySignature(signature, WEBHOOK_SECRET)) {
-        error('Invalid webhook signature');
-        return res.json({ success: false, error: 'Invalid signature' }, 401);
-      }
-    }
+    // // Optional: Verify webhook signature
+    // if (WEBHOOK_SECRET) {
+    //   const signature = req.headers['x-nrfcloud-signature'] || req.headers['authorization'];
+    //   if (!verifySignature(signature, WEBHOOK_SECRET)) {
+    //     error('Invalid webhook signature');
+    //     return res.json({ success: false, error: 'Invalid signature' }, 401);
+    //   }
+    // }
 
     // Handle both single message and batch message formats
     const messages = payload.messages || [payload];
