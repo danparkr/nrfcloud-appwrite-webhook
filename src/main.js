@@ -106,7 +106,7 @@ export default async ({ req, res, log, error }) => {
  * Process a single nRF Cloud message and store it in the database
  */
 async function processMessage(databases, databaseId, collectionId, msg, log) {
-  const { deviceId, tenantId, topic, receivedAt, message } = msg;
+  const { teamId, deviceId, tenantId, topic, receivedAt, message } = msg;
 
   const appId = message?.appId || 'UNKNOWN';
   const messageType = message?.messageType || 'DATA';
@@ -114,6 +114,7 @@ async function processMessage(databases, databaseId, collectionId, msg, log) {
   const timestamp = message?.ts || message?.time || Date.now();
 
   const documentData = {
+    teamId: teamId,
     deviceId: deviceId,
     tenantId: tenantId || null,
     topic: topic || null,
